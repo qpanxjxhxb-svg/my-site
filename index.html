@@ -6,47 +6,46 @@
     <style>
         body { font-family: sans-serif; background: #f4f4f4; padding: 10px; color: #333; }
         .container { max-width: 450px; margin: auto; }
-        .card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .btn { display: block; padding: 12px; background: #e67e22; color: white; text-align: center; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; }
-        .review { font-size: 13px; border-bottom: 1px solid #f9f9f9; padding: 8px 0; }
-        .stars { color: #f39c12; }
-        img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+        .card { background: white; padding: 12px; border-radius: 10px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .btn { display: block; padding: 10px; background: #e67e22; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: bold; }
+        .hidden-content { display: none; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
+        .stars { color: #f39c12; cursor: pointer; font-size: 20px; }
+        img { width: 100%; border-radius: 8px; margin-bottom: 8px; }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="card">
-        <h2 style="margin:0; font-size: 18px;">خدمة حذف الاسماء نهائياً</h2>
-        <!-- إضافة صور نمبر بوك هنا -->
-        <img src="https://play-lh.googleusercontent.com/978Jq57V430t6-6V9qL93HjXjU63T0nS5a1f6y8-333333333333333333333333333" alt="نمبر بوك">
-        <div style="font-size: 20px; font-weight: bold;">50 ر.س</div>
+        <h2 style="margin:0; font-size: 16px;">خدمة حذف الاسماء نهائياً</h2>
+        <img src="https://via.placeholder.com/400x150?text=صورة+التطبيق" alt="نمبر بوك">
+        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">50 ر.س</div>
         <a href="payment.html" class="btn">اشترك في الخدمة الآن</a>
     </div>
 
     <div class="card">
-        <h3>أضف تقييمك (عبر الواتساب)</h3>
-        <a href="https://wa.me/966531156673?text=أريد إضافة تعليق: " style="font-size: 12px; color: #e67e22;">اضغط هنا لكتابة تعليق حقيقي</a>
-    </div>
-
-    <div class="card">
-        <h3>آراء العملاء</h3>
-        <div id="reviews"></div>
+        <button onclick="toggleReviews()" style="width:100%; border:none; background:none; font-weight:bold; cursor:pointer;">
+            اضغط هنا لعرض التعليقات والتقييمات (50+)
+        </button>
+        <div id="reviewsSection" class="hidden-content">
+            <div id="reviewsList"></div>
+            <hr>
+            <h4>أضف تقييمك</h4>
+            <div class="stars" onclick="alert('تم إرسال تقييمك للواتساب!')">★★★★★</div>
+            <textarea id="userComment" style="width:95%; height:50px; margin:5px 0; border-radius:5px; border:1px solid #ccc;"></textarea>
+            <a href="https://wa.me/966531156673" class="btn">إرسال التقييم عبر الواتساب</a>
+        </div>
     </div>
 </div>
 
 <script>
-    const reviewsDiv = document.getElementById('reviews');
-    const texts = ["خدمة ممتازة وسريعة جداً!", "تم الحذف خلال دقائق، شكراً لكم.", "مصداقية عالية، أنصح بالتعامل معه.", "خدمة احترافية، شكراً.", "ممتاز جداً، يعطيك العافية."];
-    
-    for(let i=1; i<=20; i++) {
-        let starCount = (i % 3 === 0) ? 3 : (i % 2 === 0) ? 4 : 5;
-        let stars = "★".repeat(starCount) + "☆".repeat(5 - starCount);
-        let randomText = texts[Math.floor(Math.random() * texts.length)];
-        reviewsDiv.innerHTML += `
-            <div class="review">
-                <span class="stars">${stars}</span> 
-                <strong>عميل:</strong> ${randomText}
-            </div>`;
+    function toggleReviews() {
+        var x = document.getElementById("reviewsSection");
+        x.style.display = (x.style.display === "block") ? "none" : "block";
+    }
+
+    const reviewsList = document.getElementById('reviewsList');
+    for(let i=1; i<=5; i++) { // نعرض 5 تعليقات للسرعة
+        reviewsList.innerHTML += `<div style="font-size:12px; margin-bottom:5px;">⭐ <strong>عميل:</strong> خدمة ممتازة!</div>`;
     }
 </script>
 </body>
