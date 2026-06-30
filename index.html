@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة حذف الاسماء - نمبر بوك</title>
+    <title>خدمة حذف الاسماء - نمبر بوك السعودية</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding: 10px; }
-        .container { max-width: 500px; margin: auto; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .price { font-size: 28px; color: #e67e22; font-weight: bold; margin: 10px 0; }
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .btn { display: block; width: 100%; padding: 15px; margin-top: 10px; border-radius: 8px; text-align: center; font-weight: bold; border: none; cursor: pointer; text-decoration: none; color: white; }
-        .btn-buy { background: #e67e22; }
-        .stars { color: #f1c40f; font-size: 20px; }
-        .review { border-bottom: 1px solid #eee; padding: 10px 0; font-size: 14px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; color: #333; }
+        .container { max-width: 600px; margin: auto; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 20px; }
+        .price-box { font-size: 24px; margin: 15px 0; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 18px; }
+        .new-price { color: #e67e22; font-weight: bold; font-size: 32px; margin-right: 10px; }
+        .btn { display: block; width: 100%; padding: 18px; background: #e67e22; color: white; border: none; border-radius: 10px; font-size: 18px; text-align: center; text-decoration: none; font-weight: bold; }
+        .comment-box { margin-top: 30px; padding: 20px; background: #fff; border-radius: 15px; border: 1px solid #eee; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="card">
-        <h1>خدمة حذف الاسماء نهائياً</h1>
-        <div class="price">50 ر.س</div>
-        <input type="text" placeholder="رقم الهاتف المراد حذفه">
-        <textarea placeholder="أي ملاحظات إضافية؟"></textarea>
-        <a href="https://wa.me/966531156673" class="btn btn-buy">الشراء الآن عبر واتساب</a>
+        <h1>خدمة حذف الاسماء نهائياً من نمبر بوك</h1>
+        <div class="price-box">
+            <span class="old-price">150 ر.س</span>
+            <span class="new-price">50 ر.س</span>
+        </div>
+        <!-- يمكنك استبدال الرابط أدناه برابط صورة حقيقية -->
+        <img src="https://via.placeholder.com/600x200?text=صورة+تطبيق+نمبر+بوك" style="width:100%; border-radius:10px; margin: 20px 0;">
+        <input type="text" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;" placeholder="رقم الهاتف">
+        <a href="https://wa.me/966531156673" class="btn">اشترك في الخدمة الآن</a>
     </div>
 
-    <div class="card">
-        <h3>تقييمات العملاء</h3>
-        <div class="stars">★★★★★ (4.9)</div>
-        <div class="review"><strong>محمد:</strong> خدمة سريعة جداً وتم الحذف في دقائق!</div>
-        <div class="review"><strong>سارة:</strong> شكراً لكم، اختفى اسمي تماماً.</div>
+    <!-- قسم التعليقات المفتوح -->
+    <div class="card comment-box">
+        <h3>شاركنا تجربتك (التعليقات)</h3>
+        <p>يمكنك كتابة تعليقك هنا:</p>
+        <textarea id="user-comment" style="width:100%; height:80px; padding:10px; border-radius:8px; border:1px solid #ccc;"></textarea>
+        <button onclick="addComment()" style="margin-top:10px; padding:10px 20px; background:#333; color:white; border:none; border-radius:5px; cursor:pointer;">إضافة تعليق</button>
+        <div id="comments-list" style="margin-top:20px;"></div>
     </div>
 </div>
+
+<script>
+    function addComment() {
+        var comment = document.getElementById("user-comment").value;
+        if(comment !== "") {
+            var newDiv = document.createElement("div");
+            newDiv.innerHTML = "<div style='padding:10px; border-bottom:1px solid #eee; margin-top:10px;'><strong>زائر:</strong> " + comment + "</div>";
+            document.getElementById("comments-list").appendChild(newDiv);
+            document.getElementById("user-comment").value = "";
+        }
+    }
+</script>
 
 </body>
 </html>
