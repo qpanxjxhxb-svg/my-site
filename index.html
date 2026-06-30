@@ -3,97 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="حذف اسماء نبر بوك السعودية، نبر بوك السعودية حذف اسماء، حذف الاسماء من الرقم في نبر بوك">
     <title>خدمة حذف الاسماء - نمبر بوك المملكة SA</title>
-    <link rel="icon" href="1000219615_2.jpg">
     <style>
         body { font-family: sans-serif; background: #f9f9f9; padding: 20px; text-align: center; }
         .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .logo { width: 120px; border-radius: 10px; margin-bottom: 10px; }
         .price { font-size: 28px; color: #e74c3c; font-weight: bold; }
         .old-price { text-decoration: line-through; color: #999; font-size: 20px; }
-        .btn { display: block; background: #27ae60; color: white; padding: 15px; text-align: center; text-decoration: none; border-radius: 5px; margin: 10px 0; font-weight: bold; }
-        .page { display: none; margin-top: 20px; text-align: right; }
+        .btn { display: block; background: #27ae60; color: white; padding: 15px; text-align: center; text-decoration: none; border-radius: 5px; margin: 10px 0; font-weight: bold; border: none; width: 100%; cursor: pointer; }
+        
+        /* تنسيق قسم الدفع الجديد */
+        #payment-section { display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; text-align: right; }
+        input { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        
         footer { margin-top: 30px; font-size: 14px; border-top: 1px solid #eee; padding-top: 10px; }
-        .star-rating { cursor: pointer; color: #f1c40f; font-size: 24px; margin: 10px 0; }
-        .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; font-size: 14px; }
+        .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; }
     </style>
 </head>
 <body>
 
-<div class="container" id="main">
+<div class="container">
     <img src="1000219615_2.jpg" class="logo">
     <h1>خدمة حذف الاسماء</h1>
     <p class="old-price">150 ريال</p>
     <p class="price">50 ريال</p>
-    <a href="#" class="btn" onclick="showPage('payment')">اطلب الخدمة / الدفع الآن</a>
     
-    <h3>التقييمات والتعليقات</h3>
-    
-    <div class="star-rating" id="stars">
-        <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
-    </div>
-    
-    <textarea id="commentText" style="width: 90%; height: 50px;" placeholder="اكتب تعليقك هنا..."></textarea>
-    <button onclick="addComment()" style="margin-top: 5px;">إرسال التقييم والتعليق</button>
+    <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
 
-    <div id="commentsSection" style="margin-top: 20px;">
-        <div class="comment-box">⭐ <strong>محمد:</strong> خدمة ممتازة وسريعة جداً.</div>
-        <div class="comment-box">⭐ <strong>سارة:</strong> تم الحذف بنجاح، شكراً لكم.</div>
-        <div class="comment-box">⭐ <strong>خالد:</strong> احترافية في التعامل.</div>
+    <div id="payment-section">
+        <h3>بيانات التحويل البنكي</h3>
+        <p>البنك: مصرف الراجحي</p>
+        <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
+        <hr>
+        <input type="text" id="name" placeholder="اسمك الكريم">
+        <input type="text" id="phone" placeholder="رقم الجوال المراد حذف اسمه">
+        <button class="btn" style="background:#2980b9;" onclick="alert('تم استلام طلبك، سنقوم بالتنفيذ فور التأكد من الحوالة.')">تأكيد إرسال الحوالة</button>
     </div>
     
-    <nav style="margin-top: 20px;">
-        <a href="#" onclick="showPage('privacy')">سياسة الخصوصية</a> | <a href="#" onclick="showPage('contact')">تواصل معنا</a>
-    </nav>
+    <h3>آراء العملاء</h3>
+    <div class="comment-box">⭐ محمد: خدمة ممتازة وسريعة.</div>
+    <div class="comment-box">⭐ سارة: تم الحذف بنجاح، شكراً لكم.</div>
 
     <footer>
         <p>الدعم الفني: 0531156673</p>
     </footer>
 </div>
-
-<div id="payment" class="container page">
-    <h2>صفحة الدفع</h2>
-    <p>السعر بعد الخصم: 50 ريال</p>
-    <p>اسم المستفيد: سند بلادي</p>
-    <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
-    <a href="https://wa.me/966531156673" class="btn">أرسلت الحوالة</a>
-    <button onclick="showPage('main')">العودة للرئيسية</button>
-</div>
-
-<div id="privacy" class="container page">
-    <h2>سياسة الخصوصية</h2>
-    <p>نحن نلتزم بحماية بياناتك وخصوصيتك في خدمة حذف الاسماء.</p>
-    <button onclick="showPage('main')">العودة للرئيسية</button>
-</div>
-
-<div id="contact" class="container page">
-    <h2>تواصل معنا</h2>
-    <p>لأي استفسار يرجى التواصل عبر الدعم الفني: 0531156673</p>
-    <button onclick="showPage('main')">العودة للرئيسية</button>
-</div>
-
-<script>
-    let currentRating = 0;
-    function showPage(id) {
-        document.querySelectorAll('.container').forEach(p => p.style.display = 'none');
-        document.getElementById(id).style.display = 'block';
-    }
-    function rate(n) {
-        currentRating = n;
-        let stars = document.getElementById('stars').children;
-        for(let i=0; i<5; i++) stars[i].style.color = (i < n) ? "#f1c40f" : "#ccc";
-    }
-    function addComment() {
-        let text = document.getElementById('commentText').value;
-        if(text) {
-            let section = document.getElementById('commentsSection');
-            section.innerHTML = `<div class="comment-box">⭐ <strong>زائر:</strong> ${text} (تقييم: ${currentRating} نجوم)</div>` + section.innerHTML;
-            document.getElementById('commentText').value = "";
-            alert("تم إرسال تقييمك بنجاح!");
-        }
-    }
-</script>
 
 </body>
 </html>
