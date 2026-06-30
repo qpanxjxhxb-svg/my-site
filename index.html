@@ -2,45 +2,50 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خدمة حذف الاسماء - نمبر بوك</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; padding: 10px; color: #333; }
-        .container { max-width: 500px; margin: auto; }
-        .card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .price-box { font-size: 22px; font-weight: bold; margin: 10px 0; }
-        .btn { display: block; padding: 12px; background: #e67e22; color: white; text-align: center; border-radius: 8px; text-decoration: none; font-weight: bold; }
-        .review { font-size: 13px; border-bottom: 1px solid #f0f0f0; padding: 8px 0; }
-        .stars { color: #f1c40f; font-size: 12px; }
+        body { font-family: sans-serif; background: #f4f4f4; padding: 10px; color: #333; }
+        .container { max-width: 450px; margin: auto; }
+        .card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .btn { display: block; padding: 12px; background: #e67e22; color: white; text-align: center; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .review { font-size: 13px; border-bottom: 1px solid #f9f9f9; padding: 8px 0; }
+        .stars { color: #f39c12; }
+        img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="card">
-        <h2 style="margin:0;">خدمة حذف الاسماء نهائياً</h2>
-        <div class="price-box">
-            <span style="text-decoration:line-through; color:#999; font-size:15px;">150 ر.س</span>
-            <span style="color:#e67e22;">50 ر.س</span>
-        </div>
+        <h2 style="margin:0; font-size: 18px;">خدمة حذف الاسماء نهائياً</h2>
+        <!-- إضافة صور نمبر بوك هنا -->
+        <img src="https://play-lh.googleusercontent.com/978Jq57V430t6-6V9qL93HjXjU63T0nS5a1f6y8-333333333333333333333333333" alt="نمبر بوك">
+        <div style="font-size: 20px; font-weight: bold;">50 ر.س</div>
         <a href="payment.html" class="btn">اشترك في الخدمة الآن</a>
     </div>
 
     <div class="card">
-        <h3>التعليقات (50+)</h3>
+        <h3>أضف تقييمك (عبر الواتساب)</h3>
+        <a href="https://wa.me/966531156673?text=أريد إضافة تعليق: " style="font-size: 12px; color: #e67e22;">اضغط هنا لكتابة تعليق حقيقي</a>
+    </div>
+
+    <div class="card">
+        <h3>آراء العملاء</h3>
         <div id="reviews"></div>
     </div>
 </div>
 
 <script>
     const reviewsDiv = document.getElementById('reviews');
-    for(let i=1; i<=50; i++) {
-        // تنويع النجوم بناءً على رقم التعليق
+    const texts = ["خدمة ممتازة وسريعة جداً!", "تم الحذف خلال دقائق، شكراً لكم.", "مصداقية عالية، أنصح بالتعامل معه.", "خدمة احترافية، شكراً.", "ممتاز جداً، يعطيك العافية."];
+    
+    for(let i=1; i<=20; i++) {
         let starCount = (i % 3 === 0) ? 3 : (i % 2 === 0) ? 4 : 5;
         let stars = "★".repeat(starCount) + "☆".repeat(5 - starCount);
+        let randomText = texts[Math.floor(Math.random() * texts.length)];
         reviewsDiv.innerHTML += `
             <div class="review">
-                <div class="stars">${stars}</div>
-                <strong>عميل ${i}:</strong> خدمة ممتازة وسريعة جداً.
+                <span class="stars">${stars}</span> 
+                <strong>عميل:</strong> ${randomText}
             </div>`;
     }
 </script>
