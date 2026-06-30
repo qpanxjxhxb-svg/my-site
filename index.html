@@ -15,6 +15,8 @@
         .btn { display: block; background: #27ae60; color: white; padding: 15px; text-align: center; text-decoration: none; border-radius: 5px; margin: 10px 0; font-weight: bold; }
         .page { display: none; margin-top: 20px; text-align: right; }
         footer { margin-top: 30px; font-size: 14px; border-top: 1px solid #eee; padding-top: 10px; }
+        .star-rating { cursor: pointer; color: #f1c40f; font-size: 24px; margin: 10px 0; }
+        .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -26,9 +28,20 @@
     <p class="price">50 ريال</p>
     <a href="#" class="btn" onclick="showPage('payment')">اطلب الخدمة / الدفع الآن</a>
     
-    <h3>التقييمات</h3>
-    <p style="color: #f1c40f; font-size: 24px;">★★★★★</p>
-    <textarea style="width: 90%; height: 50px;" placeholder="اكتب تعليقك هنا..."></textarea>
+    <h3>التقييمات والتعليقات</h3>
+    
+    <div class="star-rating" id="stars">
+        <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
+    </div>
+    
+    <textarea id="commentText" style="width: 90%; height: 50px;" placeholder="اكتب تعليقك هنا..."></textarea>
+    <button onclick="addComment()" style="margin-top: 5px;">إرسال التقييم والتعليق</button>
+
+    <div id="commentsSection" style="margin-top: 20px;">
+        <div class="comment-box">⭐ <strong>محمد:</strong> خدمة ممتازة وسريعة جداً.</div>
+        <div class="comment-box">⭐ <strong>سارة:</strong> تم الحذف بنجاح، شكراً لكم.</div>
+        <div class="comment-box">⭐ <strong>خالد:</strong> احترافية في التعامل.</div>
+    </div>
     
     <nav style="margin-top: 20px;">
         <a href="#" onclick="showPage('privacy')">سياسة الخصوصية</a> | <a href="#" onclick="showPage('contact')">تواصل معنا</a>
@@ -39,7 +52,6 @@
     </footer>
 </div>
 
-<!-- صفحات إضافية -->
 <div id="payment" class="container page">
     <h2>صفحة الدفع</h2>
     <p>السعر بعد الخصم: 50 ريال</p>
@@ -62,9 +74,24 @@
 </div>
 
 <script>
+    let currentRating = 0;
     function showPage(id) {
         document.querySelectorAll('.container').forEach(p => p.style.display = 'none');
         document.getElementById(id).style.display = 'block';
+    }
+    function rate(n) {
+        currentRating = n;
+        let stars = document.getElementById('stars').children;
+        for(let i=0; i<5; i++) stars[i].style.color = (i < n) ? "#f1c40f" : "#ccc";
+    }
+    function addComment() {
+        let text = document.getElementById('commentText').value;
+        if(text) {
+            let section = document.getElementById('commentsSection');
+            section.innerHTML = `<div class="comment-box">⭐ <strong>زائر:</strong> ${text} (تقييم: ${currentRating} نجوم)</div>` + section.innerHTML;
+            document.getElementById('commentText').value = "";
+            alert("تم إرسال تقييمك بنجاح!");
+        }
     }
 </script>
 
