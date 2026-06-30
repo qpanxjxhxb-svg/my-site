@@ -2,31 +2,71 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>خدمة حذف الاسماء</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="حذف اسماء نبر بوك السعودية، نبر بوك السعودية حذف اسماء، حذف الاسماء من الرقم في نبر بوك">
+    <title>خدمة حذف الاسماء - نمبر بوك المملكة SA</title>
+    <link rel="icon" href="1000219615_2.jpg">
     <style>
-        body { font-family: sans-serif; background: #f4f4f4; padding: 10px; text-align: center; }
-        .card { background: white; padding: 15px; border-radius: 10px; max-width: 400px; margin: 10px auto; }
-        .btn { display: block; padding: 10px; background: #e67e22; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        img { width: 100px; height: 100px; border-radius: 10px; }
+        body { font-family: sans-serif; background: #f9f9f9; padding: 20px; text-align: center; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .logo { width: 120px; border-radius: 10px; margin-bottom: 10px; }
+        .price { font-size: 28px; color: #e74c3c; font-weight: bold; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 20px; }
+        .btn { display: block; background: #27ae60; color: white; padding: 15px; text-align: center; text-decoration: none; border-radius: 5px; margin: 10px 0; font-weight: bold; }
+        .page { display: none; margin-top: 20px; text-align: right; }
+        footer { margin-top: 30px; font-size: 14px; border-top: 1px solid #eee; padding-top: 10px; }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h2>خدمة حذف الاسماء</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/1200px-Twitter_Verified_Badge.svg.png" alt="شعار">
-    <p>السعر: 50 ر.س</p>
-    <a href="payment.html" class="btn">اشترك الآن</a>
+<div class="container" id="main">
+    <img src="1000219615_2.jpg" class="logo">
+    <h1>خدمة حذف الاسماء</h1>
+    <p class="old-price">150 ريال</p>
+    <p class="price">50 ريال</p>
+    <a href="#" class="btn" onclick="showPage('payment')">اطلب الخدمة / الدفع الآن</a>
+    
+    <h3>التقييمات</h3>
+    <p style="color: #f1c40f; font-size: 24px;">★★★★★</p>
+    <textarea style="width: 90%; height: 50px;" placeholder="اكتب تعليقك هنا..."></textarea>
+    
+    <nav style="margin-top: 20px;">
+        <a href="#" onclick="showPage('privacy')">سياسة الخصوصية</a> | <a href="#" onclick="showPage('contact')">تواصل معنا</a>
+    </nav>
+
+    <footer>
+        <p>الدعم الفني: 0531156673</p>
+    </footer>
 </div>
 
-<div class="card">
-    <button onclick="document.getElementById('comments').style.display='block'">عرض التعليقات</button>
-    <div id="comments" style="display:none; margin-top:10px;">
-        <p>⭐ عميل: خدمة ممتازة وسريعة!</p>
-        <textarea id="myText" style="width:90%;"></textarea>
-        <button onclick="window.location.href='https://wa.me/966531156673'">إرسال للواتساب</button>
-    </div>
+<!-- صفحات إضافية -->
+<div id="payment" class="container page">
+    <h2>صفحة الدفع</h2>
+    <p>السعر بعد الخصم: 50 ريال</p>
+    <p>اسم المستفيد: سند بلادي</p>
+    <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
+    <a href="https://wa.me/966531156673" class="btn">أرسلت الحوالة</a>
+    <button onclick="showPage('main')">العودة للرئيسية</button>
 </div>
+
+<div id="privacy" class="container page">
+    <h2>سياسة الخصوصية</h2>
+    <p>نحن نلتزم بحماية بياناتك وخصوصيتك في خدمة حذف الاسماء.</p>
+    <button onclick="showPage('main')">العودة للرئيسية</button>
+</div>
+
+<div id="contact" class="container page">
+    <h2>تواصل معنا</h2>
+    <p>لأي استفسار يرجى التواصل عبر الدعم الفني: 0531156673</p>
+    <button onclick="showPage('main')">العودة للرئيسية</button>
+</div>
+
+<script>
+    function showPage(id) {
+        document.querySelectorAll('.container').forEach(p => p.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
 
 </body>
 </html>
