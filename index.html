@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>باقة حذف الاسماء | حذف فوري نهائي</title>
+    <title>خدمة حذف الاسماء - نمبر بوك</title>
     <style>
-        body { font-family: sans-serif; background: #f8f8f8; padding: 20px; }
-        .product-card { background: white; padding: 20px; border-radius: 15px; max-width: 500px; margin: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h1 { font-size: 20px; color: #333; }
-        .price { color: #f46a48; font-size: 28px; font-weight: bold; margin: 10px 0; }
-        label { display: block; margin-top: 15px; font-weight: bold; font-size: 14px; }
-        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .btn { display: block; width: 100%; padding: 15px; margin-top: 15px; border-radius: 8px; text-align: center; font-weight: bold; border: none; cursor: pointer; text-decoration: none; }
-        .btn-cart { background: #fccdc0; color: #e67e22; }
-        .btn-buy { background: #f46a48; color: white; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f4f4; margin: 0; padding: 10px; }
+        .container { max-width: 500px; margin: auto; }
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .price { font-size: 28px; color: #e67e22; font-weight: bold; margin: 10px 0; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .btn { display: block; width: 100%; padding: 15px; margin-top: 10px; border-radius: 8px; text-align: center; font-weight: bold; border: none; cursor: pointer; text-decoration: none; color: white; }
+        .btn-buy { background: #e67e22; }
+        .stars { color: #f1c40f; font-size: 20px; }
+        .review { border-bottom: 1px solid #eee; padding: 10px 0; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<div class="product-card">
-    <h1>باقة حذف الاسماء ( حذف فوري نهائياً ) من 4 تطبيقات</h1>
-    <div class="price">149 ر.س</div>
-    
-    <label>رقم الهاتف ( يرجى التاكيد بدقة من رقم الهاتف ) *</label>
-    <input type="text" placeholder="ادخل النص هنا">
-    
-    <label>إضافة ملاحظة</label>
-    <textarea placeholder="ادخل النص هنا"></textarea>
-    
-    <a href="https://wa.me/966531156673" class="btn btn-cart">أضف إلى السلة</a>
-    <a href="https://wa.me/966531156673" class="btn btn-buy">الشراء الآن</a>
+<div class="container">
+    <div class="card">
+        <h1>خدمة حذف الاسماء نهائياً</h1>
+        <div class="price">50 ر.س</div>
+        <input type="text" placeholder="رقم الهاتف المراد حذفه">
+        <textarea placeholder="أي ملاحظات إضافية؟"></textarea>
+        <a href="https://wa.me/966531156673" class="btn btn-buy">الشراء الآن عبر واتساب</a>
+    </div>
+
+    <div class="card">
+        <h3>تقييمات العملاء</h3>
+        <div class="stars">★★★★★ (4.9)</div>
+        <div class="review"><strong>محمد:</strong> خدمة سريعة جداً وتم الحذف في دقائق!</div>
+        <div class="review"><strong>سارة:</strong> شكراً لكم، اختفى اسمي تماماً.</div>
+    </div>
 </div>
 
 </body>
