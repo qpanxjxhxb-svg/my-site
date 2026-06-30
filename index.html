@@ -3,222 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة حذف الأسماء من نمبر بوك</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>نمبر بوك السعودية حذف اسماء نمبر بوك السعودية حذف الاسماء من الرقم في نمبر بوك</title>
     <style>
-        :root {
-            --primary: #1e293b;
-            --success: #a34a; /* تم تعديله ليكون متناسقاً */
-            --accent: #dc2626;
-            --text: #334155;
-            --bg-light: #f8fafc;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--accent);
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 5px;
-        }
-
-        .logo-area h1 {
-            font-size: 24px;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        header p {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            text-align: center;
-        }
-
-        .icon-box {
-            width: 65px;
-            height: 65px;
-            background: #fef2f2;
-            color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .description {
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 25px;
-            background: #f8fafc;
-            padding: 12px;
-            border-radius: 8px;
-            border-right: 4px solid var(--accent);
-            text-align: right;
-        }
-
-        .features {
-            text-align: right;
-            margin-bottom: 30px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: #475569;
-        }
-
-        .feature-item i {
-            color: #16a34a;
-            flex-shrink: 0;
-        }
-
-        .price-tag {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .price-tag span {
-            font-size: 14px;
-            color: #64748b;
-            font-weight: 400;
-        }
-
-        .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
-        }
-
-        .btn-whatsapp:hover {
-            background: #20ba5a;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 12px;
-            color: #94a3b8;
-            padding-bottom: 20px;
-        }
+        body { font-family: sans-serif; background: #f4f7f6; text-align: center; padding: 50px 20px; }
+        .box { background: white; padding: 30px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .btn { display: block; padding: 15px; margin: 15px 0; border-radius: 10px; font-weight: bold; text-decoration: none; color: white; cursor: pointer; border: none; width: 100%; font-size: 16px; }
+        .wa { background: #25d366; }
+        .bank { background: #004a99; }
+        #bank-info { display: none; margin-top: 20px; text-align: right; background: #f9f9f9; padding: 15px; border-radius: 10px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo-area">
-            <i data-lucide="shield-alert" style="color: var(--accent);"></i>
-            <h1>حذف وحجب الأسماء</h1>
+    <div class="box">
+        <h1>نمبر بوك السعودية</h1>
+        <p>خدمة حذف اسماء نمبر بوك السعودية، وحذف الاسماء من الرقم في نمبر بوك بكل سهولة.</p>
+        
+        <a href="https://wa.me/966531156673" class="btn wa">تواصل معنا واتساب للطلب</a>
+        
+        <button class="btn bank" onclick="document.getElementById('bank-info').style.display='block'">طريقة الدفع (سند بلادي)</button>
+        
+        <div id="bank-info">
+            <p><strong>الاسم:</strong> سند بلادي</p>
+            <p><strong>الآيبان:</strong> SA05 6010 0001 0813 1434 0002</p>
+            <p><em>يرجى إرسال إيصال التحويل عبر واتساب.</em></p>
         </div>
-        <p>الخدمة الفورية لإزالة البيانات من تطبيقات كشف الهوية</p>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <div class="icon-box">
-                <i data-lucide="user-x" size="32"></i>
-            </div>
-            
-            <h2>طلب حذف اسم نهائياً</h2>
-            
-            <div class="description">
-                نساعدك في إزالة اسمك أو أرقامك المرتبطة من قواعد بيانات تطبيقات (Numberbook) وتطبيقات كشف الهوية المشابهة بشكل رسمي وسريع لحماية خصوصيتك.
-            </div>
-
-            <div class="features">
-                <div class="feature-item">
-                    <i data-lucide="check-circle-2" size="18"></i>
-                    <span>حذف الاسم من جميع المحركات خلال دقائق.</span>
-                </div>
-                <div class="feature-item">
-                    <i data-lucide="check-circle-2" size="18"></i>
-                    <span>حجب رقمك لمنع رفعه أو ظهوره مجدداً مستقبلاً.</span>
-                </div>
-                <div class="feature-item">
-                    <i data-lucide="check-circle-2" size="18"></i>
-                    <span>ضمان كامل وسرية تامة لبيانات العميل.</span>
-                </div>
-            </div>
-
-            <div class="price-tag">
-                50 <span>ريال سعودي / للرقم</span>
-            </div>
-
-            <a href="https://wa.me/966571584472?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%B0%D9%81%20%D8%A7%D8%B3%D9%85%D9%8A%20%D9%85%D9%86%20%D8%A7%D9%84%D9%86%D9%85%D8%A8%D8%B1%20%D8%A8%D9%84%D9%83" class="btn-whatsapp">
-                <i data-lucide="message-circle" size="20"></i>
-                ارسل طلبك عبر الواتساب الآن
-            </a>
-        </div>
-
-        <footer>
-            جميع الحقوق محفوظة © 2026 | خدمة مستقلة لحماية الخصوصية
-        </footer>
     </div>
-
-    <script>
-        // لتشغيل الأيقونات التفاعلية في الصفحة
-        lucide.createIcons();
-    </script>
 </body>
 </html>
