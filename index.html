@@ -7,10 +7,8 @@
         body { font-family: sans-serif; background: #f9f9f9; padding: 20px; text-align: center; }
         .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn { display: block; background: #27ae60; color: white; padding: 15px; border-radius: 5px; margin: 10px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; }
-        
         #payment-section { display: none; margin-top: 20px; padding: 15px; border: 2px solid #27ae60; border-radius: 8px; text-align: right; background: #f0fdf4; }
         input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        
         .stars-input { font-size: 30px; cursor: pointer; color: #ccc; }
         .star-active { color: #f1c40f; }
         .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; font-size: 14px; }
@@ -50,38 +48,30 @@
 </div>
 
 <script>
-    // إضافة 50 تعليقاً برمجياً
     for(let i=1; i<=50; i++) {
         let div = document.createElement('div');
         div.className = 'comment-box';
-        div.innerHTML = '<span style="color:#f1c40f;">★★★★★</span> <strong>عميل ' + i + ':</strong> خدمة سريعة واحترافية جداً.';
+        div.innerHTML = '<span style="color:#f1c40f;">★★★★★</span> <strong>عميل ' + i + ':</strong> خدمة ممتازة وسريعة.';
         document.getElementById('comments-list').appendChild(div);
     }
-
-    let currentRating = 0;
+    let currentRating = 5;
     function setStars(n) {
         currentRating = n;
         let stars = document.querySelectorAll('.stars-input span');
         stars.forEach((s, i) => s.className = i < n ? 'star-active' : '');
     }
-
     function addComment() {
         let name = document.getElementById('user-name').value;
         let comment = document.getElementById('user-comment').value;
         if(name && comment) {
             let div = document.createElement('div');
             div.className = 'comment-box';
-            let starsStr = '★'.repeat(currentRating || 5);
+            let starsStr = '★'.repeat(currentRating);
             div.innerHTML = '<span style="color:#f1c40f;">' + starsStr + '</span> <strong>' + name + ':</strong> ' + comment;
             document.getElementById('comments-list').prepend(div);
-            alert("شكراً لك! تم نشر تقييمك.");
-            document.getElementById('user-name').value = '';
-            document.getElementById('user-comment').value = '';
-        } else {
-            alert("يرجى إدخال الاسم والتعليق.");
-        }
+            alert("شكراً لك!");
+        } else { alert("يرجى إدخال البيانات"); }
     }
 </script>
-
 </body>
 </html>
