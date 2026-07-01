@@ -9,12 +9,9 @@ body { font-family: tant-serif; background: #1a1a2e; padding: 15px; text-align: 
 .container { max-width: 400px; margin: auto; background: #16213e; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 .logo { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: block; }
 .btn { display: block; background: #e94560; color: white; padding: 12px; border-radius: 8px; margin: 10px 0; border: none; width: 100%; cursor: pointer; }
-
-/* تنسيق الأسعار */
 .price-box { margin: 15px 0; padding: 10px; background: #0f3460; border-radius: 8px; }
 .old-price { text-decoration: line-through; color: #888; font-size: 14px; margin-left: 10px; }
 .new-price { color: #27ae60; font-size: 24px; font-weight: bold; }
-
 #payment-section { display: none; margin-top: 15px; padding: 15px; border: 1px solid #e94560; border-radius: 10px; }
 input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: #fff; }
 .stars-input { font-size: 28px; cursor: pointer; color: #533483; }
@@ -28,16 +25,12 @@ h1, h2, h3 { color: #fff; }
 
 <div class="container">
     <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="شعار الخدمة" class="logo">
-
     <h2>خدمة حذف الاسماء</h2>
-
     <div class="price-box">
         <span class="old-price">150 ريال</span>
         <span class="new-price">50 ريال</span>
     </div>
-
     <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
-
     <div id="payment-section">
         <h3>يرجى التحويل على الحساب التالي:</h3>
         <p><strong>اسم البنك:</strong> الراجحي</p>
@@ -47,14 +40,12 @@ h1, h2, h3 { color: #fff; }
         <input type="text" id="phone" placeholder="رقم الجوال المطلوب حذفه">
         <button class="btn" style="background:#27ae60;" onclick="alert('جاري التأكد من حوالتكم وسنقوم بالعمل فور التحقق من إيداعها')">إرسال</button>
     </div>
-
     <h3>آراء الزبائن</h3>
     <div id="comments-list">
         <div class="comment-box">★★★★★ <strong>خدمة سريعة جداً</strong></div>
         <div class="comment-box">★★★★★ <strong>تم الحذف بنجاح</strong></div>
     </div>
     <button id="more-btn" class="btn" style="background:#533483;" onclick="showMore()">قراءة المزيد من التعليقات</button>
-
     <div style="margin-top:20px; border-top:1px solid #0f3460; padding-top:15px;">
         <p>أضف تقييمك:</p>
         <div class="stars-input" id="stars">
@@ -64,7 +55,6 @@ h1, h2, h3 { color: #fff; }
         <textarea id="user-comment" placeholder="اكتب رأيك..."></textarea>
         <button class="btn" style="background:#34495e;" onclick="addComment()">نشر التعليق</button>
     </div>
-
     <div style="margin-top: 30px; padding: 15px; background: #0f3460; border-radius: 10px;">
         <p>لأي استفسار تواصل عبر الواتساب:</p>
         <a href="https://wa.me/966531156673" style="color: #27ae60; font-weight: bold; font-size: 18px;">0531156673</a>
@@ -72,10 +62,12 @@ h1, h2, h3 { color: #fff; }
 </div>
 
 <script>
-    // ... باقي السكربت الخاص بك موجود هنا ...
+    function showMore() { alert("جاري تحميل المزيد..."); }
+    function setStars(n) { document.getElementById('stars').innerHTML = '★'.repeat(n) + '☆'.repeat(5-n); }
+    function addComment() { alert("شكراً لتقييمك!"); }
 </script>
 
-<!-- كود العداد الجديد -->
+<!-- كود العداد -->
 <script src="https://cdn.counter.dev/script.js" data-id="03f41621-afcd-4df4-90a9-af09acb56058" data-utcoffset="3"></script>
 </body>
 </html>
