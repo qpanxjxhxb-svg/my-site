@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حذف اسماء نبر بوك</title>
 <style>
-body { font-family: sans-serif; background: #1a1a2e; padding: 15px; text-align: center; color: #fff; }
-.container { max-width: 400px; margin: auto; background: #16213e; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-.logo { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: block; }
-.btn { display: block; background: #e94560; color: white; padding: 12px; border-radius: 8px; margin: 10px 0; border: none; width: 100%; cursor: pointer; }
-.price-box { margin: 15px 0; padding: 10px; background: #0f3460; border-radius: 8px; }
-.old-price { text-decoration: line-through; color: #888; font-size: 14px; margin-left: 10px; }
-.new-price { color: #27ae60; font-size: 24px; font-weight: bold; }
-#payment-section { display: none; margin-top: 15px; padding: 15px; border: 1px solid #e94560; border-radius: 10px; }
-input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: #fff; }
-.stars-input { font-size: 28px; cursor: pointer; color: #533483; }
-.comment-box { border-bottom: 1px solid #0f3460; padding: 10px 0; text-align: right; color: #ccc; font-size: 14px; }
-h1, h2, h3 { color: #fff; }
+    body { font-family: sans-serif; background: #1a1a2e; padding: 15px; text-align: center; color: #fff; }
+    .container { max-width: 400px; margin: auto; background: #16213e; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .logo { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: block; }
+    .btn { display: block; background: #e94560; color: white; padding: 12px; border-radius: 8px; margin: 10px 0; border: none; width: 100%; cursor: pointer; }
+    .price-box { margin: 15px 0; padding: 10px; background: #0f3460; border-radius: 8px; }
+    .old-price { text-decoration: line-through; color: #888; font-size: 14px; margin-left: 10px; }
+    .new-price { color: #27ae60; font-size: 24px; font-weight: bold; }
+    #payment-section { display: none; margin-top: 15px; padding: 15px; border: 1px solid #e94560; border-radius: 10px; }
+    input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: #fff; }
+    .stars-input { font-size: 28px; cursor: pointer; color: #533483; }
+    .comment-box { border-bottom: 1px solid #0f3460; padding: 10px 0; text-align: right; color: #ccc; font-size: 14px; }
+    .hidden-comment { display: none; }
+    h1, h2, h3 { color: #fff; }
 </style>
 </head>
 <body>
@@ -60,13 +61,29 @@ h1, h2, h3 { color: #fff; }
 </div>
 
 <script>
-    function showMore() { alert("لا توجد تعليقات إضافية حالياً"); }
+    const msgs = ["خدمة ممتازة وسريعة", "شكرا لك تم الحذف بنجاح", "تعامل راقي جداً", "مصداقية عالية", "تم الخدمة في وقت قصير", "أنصح الجميع بالتعامل معه", "ما قصرت بيض الله وجهك", "شغل احترافي وممتاز", "سريع جداً في الرد والخدمة", "أفضل خدمة حذف أسماء"];
+    for(let i=0; i<msgs.length; i++) {
+        let div = document.createElement('div');
+        div.className = 'comment-box hidden-comment';
+        div.innerHTML = '★★★★★ <strong>' + msgs[i] + '</strong>';
+        document.getElementById('comments-list').appendChild(div);
+    }
+    
+    function showMore() {
+        let hidden = document.querySelectorAll('.hidden-comment');
+        for(let i=0; i<hidden.length; i++) {
+            hidden[i].style.display = 'block';
+        }
+        document.getElementById('more-btn').style.display = 'none';
+    }
+
     function setStars(n) {
         let stars = document.getElementById('stars').getElementsByTagName('span');
         for (let i = 0; i < stars.length; i++) {
             stars[i].style.color = (i < n) ? '#f1c40f' : '#533483';
         }
     }
+
     function addComment() {
         let name = document.getElementById('user-name').value;
         let comment = document.getElementById('user-comment').value;
@@ -84,7 +101,6 @@ h1, h2, h3 { color: #fff; }
     }
 </script>
 
-<!-- كود العداد -->
 <script src="https://cdn.counter.dev/script.js" data-id="03f41621-afcd-4df4-90a9-af09acb56058" data-utcoffset="3"></script>
 </body>
 </html>
