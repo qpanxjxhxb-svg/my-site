@@ -6,18 +6,24 @@
     <style>
         body { font-family: sans-serif; background: #f9f9f9; padding: 20px; text-align: center; }
         .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        /* تصغير الشعار */
+        .logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px; object-fit: cover; }
         .btn { display: block; background: #27ae60; color: white; padding: 15px; border-radius: 5px; margin: 10px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; }
+        
         #payment-section { display: none; margin-top: 20px; padding: 15px; border: 2px solid #27ae60; border-radius: 8px; text-align: right; background: #f0fdf4; }
         input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        
         .stars-input { font-size: 30px; cursor: pointer; color: #ccc; }
         .star-active { color: #f1c40f; }
         .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; font-size: 14px; }
-        #comments-list { max-height: 400px; overflow-y: auto; border: 1px solid #eee; padding: 10px; margin-top: 10px; }
+        /* إخفاء التعليقات الزائدة */
+        .hidden-comment { display: none; }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <img src="1000219615_2.jpg" class="logo">
     <h1>خدمة حذف الاسماء</h1>
     <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
 
@@ -32,7 +38,12 @@
     </div>
 
     <h3>آراء العملاء</h3>
-    <div id="comments-list"></div>
+    <div id="comments-list">
+        <div class="comment-box">⭐ <strong>محمد:</strong> خدمة سريعة واحترافية.</div>
+        <div class="comment-box">⭐ <strong>سارة:</strong> تم الحذف بنجاح، شكراً لكم.</div>
+        </div>
+    
+    <button id="more-btn" class="btn" style="background:#7f8c8d;" onclick="showMore()">قراءة المزيد من التعليقات</button>
 
     <div style="margin-top:30px; border-top:2px solid #eee; padding-top:20px;">
         <h4>أضف تقييمك:</h4>
@@ -48,18 +59,27 @@
 </div>
 
 <script>
-    for(let i=1; i<=50; i++) {
+    // إضافة 50 تعليقاً برمجياً مخفياً
+    for(let i=1; i<=48; i++) {
         let div = document.createElement('div');
-        div.className = 'comment-box';
-        div.innerHTML = '<span style="color:#f1c40f;">★★★★★</span> <strong>عميل ' + i + ':</strong> خدمة ممتازة وسريعة.';
+        div.className = 'comment-box hidden-comment';
+        div.innerHTML = '<span style="color:#f1c40f;">★★★★★</span> <strong>عميل ' + i + ':</strong> خدمة ممتازة جداً.';
         document.getElementById('comments-list').appendChild(div);
     }
+
+    function showMore() {
+        let hidden = document.querySelectorAll('.hidden-comment');
+        hidden.forEach(el => el.style.display = 'block');
+        document.getElementById('more-btn').style.display = 'none';
+    }
+
     let currentRating = 5;
     function setStars(n) {
         currentRating = n;
         let stars = document.querySelectorAll('.stars-input span');
         stars.forEach((s, i) => s.className = i < n ? 'star-active' : '');
     }
+
     function addComment() {
         let name = document.getElementById('user-name').value;
         let comment = document.getElementById('user-comment').value;
