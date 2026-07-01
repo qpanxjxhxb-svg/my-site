@@ -2,21 +2,20 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خدمة حذف الاسماء</title>
     <style>
-        body { font-family: sans-serif; background: #f9f9f9; padding: 20px; text-align: center; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        /* تصغير الشعار */
-        .logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px; object-fit: cover; }
-        .btn { display: block; background: #27ae60; color: white; padding: 15px; border-radius: 5px; margin: 10px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; }
+        body { font-family: sans-serif; background: #f9f9f9; padding: 10px; text-align: center; }
+        .container { max-width: 400px; margin: auto; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .logo { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 5px; object-fit: cover; }
+        .btn { display: block; background: #27ae60; color: white; padding: 12px; border-radius: 5px; margin: 8px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; font-size: 14px; }
         
-        #payment-section { display: none; margin-top: 20px; padding: 15px; border: 2px solid #27ae60; border-radius: 8px; text-align: right; background: #f0fdf4; }
-        input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        #payment-section { display: none; margin-top: 10px; padding: 10px; border: 1px solid #27ae60; border-radius: 5px; text-align: right; background: #f0fdf4; font-size: 13px; }
+        input, textarea { width: 100%; padding: 8px; margin: 4px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 13px; }
         
-        .stars-input { font-size: 30px; cursor: pointer; color: #ccc; }
+        .stars-input { font-size: 24px; cursor: pointer; color: #ccc; }
         .star-active { color: #f1c40f; }
-        .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; font-size: 14px; }
-        /* إخفاء التعليقات الزائدة */
+        .comment-box { border-bottom: 1px solid #eee; padding: 8px 0; text-align: right; font-size: 13px; }
         .hidden-comment { display: none; }
     </style>
 </head>
@@ -24,29 +23,27 @@
 
 <div class="container">
     <img src="1000219615_2.jpg" class="logo">
-    <h1>خدمة حذف الاسماء</h1>
+    <h2 style="margin: 5px 0;">خدمة حذف الاسماء</h2>
     <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
 
     <div id="payment-section">
-        <h3 style="text-align: center;">بيانات التحويل البنكي</h3>
         <p>البنك: <strong>بنك الجزيرة</strong></p>
         <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
-        <hr>
         <input type="text" id="name" placeholder="الاسم الكريم">
         <input type="text" id="phone" placeholder="رقم الجوال المطلوب حذفه">
         <button class="btn" style="background:#2980b9;" onclick="alert('تم استلام طلبك، سنقوم بالتنفيذ فور التحقق من الحوالة.')">تأكيد إتمام الحوالة</button>
     </div>
 
-    <h3>آراء العملاء</h3>
+    <h3 style="font-size: 16px;">آراء العملاء</h3>
     <div id="comments-list">
-        <div class="comment-box">⭐ <strong>محمد:</strong> خدمة سريعة واحترافية.</div>
-        <div class="comment-box">⭐ <strong>سارة:</strong> تم الحذف بنجاح، شكراً لكم.</div>
-        </div>
+        <div class="comment-box">⭐⭐⭐⭐⭐ <strong>سلطان:</strong> شغل نظيف وسرعة في الرد.</div>
+        <div class="comment-box">⭐⭐⭐⭐ <strong>مريم:</strong> تم الحذف في دقائق، شكراً لكم.</div>
+    </div>
     
-    <button id="more-btn" class="btn" style="background:#7f8c8d;" onclick="showMore()">قراءة المزيد من التعليقات</button>
+    <button id="more-btn" class="btn" style="background:#7f8c8d; font-size: 12px;" onclick="showMore()">قراءة المزيد من التعليقات</button>
 
-    <div style="margin-top:30px; border-top:2px solid #eee; padding-top:20px;">
-        <h4>أضف تقييمك:</h4>
+    <div style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;">
+        <h4 style="margin: 5px 0;">أضف تقييمك:</h4>
         <div class="stars-input" id="stars">
             <span onclick="setStars(1)">★</span><span onclick="setStars(2)">★</span>
             <span onclick="setStars(3)">★</span><span onclick="setStars(4)">★</span>
@@ -59,25 +56,23 @@
 </div>
 
 <script>
-    // إضافة 50 تعليقاً برمجياً مخفياً
+    const texts = ["خدمة جبارة", "سرعة خيالية", "مصداقية عالية", "تم الحذف بنجاح", "الله يعطيكم العافية", "تجربة ممتازة جداً", "شخص ثقة", "أفضل خدمة تعاملت معها"];
     for(let i=1; i<=48; i++) {
         let div = document.createElement('div');
         div.className = 'comment-box hidden-comment';
-        div.innerHTML = '<span style="color:#f1c40f;">★★★★★</span> <strong>عميل ' + i + ':</strong> خدمة ممتازة جداً.';
+        div.innerHTML = '⭐⭐⭐⭐⭐ <strong>عميل ' + i + ':</strong> ' + texts[i % texts.length];
         document.getElementById('comments-list').appendChild(div);
     }
 
     function showMore() {
-        let hidden = document.querySelectorAll('.hidden-comment');
-        hidden.forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.hidden-comment').forEach(el => el.style.display = 'block');
         document.getElementById('more-btn').style.display = 'none';
     }
 
     let currentRating = 5;
     function setStars(n) {
         currentRating = n;
-        let stars = document.querySelectorAll('.stars-input span');
-        stars.forEach((s, i) => s.className = i < n ? 'star-active' : '');
+        document.querySelectorAll('.stars-input span').forEach((s, i) => s.className = i < n ? 'star-active' : '');
     }
 
     function addComment() {
@@ -86,11 +81,10 @@
         if(name && comment) {
             let div = document.createElement('div');
             div.className = 'comment-box';
-            let starsStr = '★'.repeat(currentRating);
-            div.innerHTML = '<span style="color:#f1c40f;">' + starsStr + '</span> <strong>' + name + ':</strong> ' + comment;
+            div.innerHTML = '⭐'.repeat(currentRating) + ' <strong>' + name + ':</strong> ' + comment;
             document.getElementById('comments-list').prepend(div);
-            alert("شكراً لك!");
-        } else { alert("يرجى إدخال البيانات"); }
+            alert("شكراً لك! تم نشر تقييمك.");
+        }
     }
 </script>
 </body>
