@@ -2,58 +2,86 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمة حذف الاسماء - نمبر بوك المملكة SA</title>
+    <title>خدمة حذف الاسماء</title>
     <style>
         body { font-family: sans-serif; background: #f9f9f9; padding: 20px; text-align: center; }
         .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .logo { width: 120px; border-radius: 10px; margin-bottom: 10px; }
-        .price { font-size: 28px; color: #e74c3c; font-weight: bold; }
-        .old-price { text-decoration: line-through; color: #999; font-size: 20px; }
-        .btn { display: block; background: #27ae60; color: white; padding: 15px; text-align: center; text-decoration: none; border-radius: 5px; margin: 10px 0; font-weight: bold; border: none; width: 100%; cursor: pointer; }
+        .btn { display: block; background: #27ae60; color: white; padding: 15px; border-radius: 5px; margin: 10px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; }
         
-        /* قسم الدفع */
-        #payment-section { display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; text-align: right; background: #fff; }
-        input { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        #payment-section { display: none; margin-top: 20px; padding: 15px; border: 2px solid #27ae60; border-radius: 8px; text-align: right; background: #f0fdf4; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
         
-        /* النجوم والتعليقات */
-        .stars { color: #f1c40f; font-size: 20px; margin: 10px 0; }
-        .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; }
-        footer { margin-top: 30px; font-size: 14px; border-top: 1px solid #eee; padding-top: 10px; }
+        .stars-input { font-size: 30px; cursor: pointer; color: #ccc; }
+        .star-active { color: #f1c40f; }
+        .comment-box { border-bottom: 1px solid #eee; padding: 10px 0; text-align: right; font-size: 14px; }
+        #comments-list { max-height: 400px; overflow-y: auto; border: 1px solid #eee; padding: 10px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="1000219615_2.jpg" class="logo">
     <h1>خدمة حذف الاسماء</h1>
-    
-    <div class="stars">★★★★★</div>
-    
-    <p class="old-price">150 ريال</p>
-    <p class="price">50 ريال</p>
-    
     <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
 
     <div id="payment-section">
-        <h3>بيانات التحويل البنكي</h3>
-        <p>البنك: مصرف الراجحي</p>
+        <h3 style="text-align: center;">بيانات التحويل البنكي</h3>
+        <p>البنك: <strong>بنك الجزيرة</strong></p>
         <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
         <hr>
-        <input type="text" id="name" placeholder="اسمك الكريم">
-        <input type="text" id="phone" placeholder="رقم الجوال المراد حذف اسمه">
-        <button class="btn" style="background:#2980b9;" onclick="alert('تم استلام طلبك، سنقوم بالتنفيذ فور التأكد من الحوالة.')">تأكيد إرسال الحوالة</button>
+        <input type="text" id="name" placeholder="الاسم الكريم">
+        <input type="text" id="phone" placeholder="رقم الجوال المطلوب حذفه">
+        <button class="btn" style="background:#2980b9;" onclick="alert('تم استلام طلبك، سنقوم بالتنفيذ فور التحقق من الحوالة.')">تأكيد إتمام الحوالة</button>
     </div>
-    
-    <h3>آراء العملاء</h3>
-    <div class="comment-box"><strong>محمد:</strong> خدمة ممتازة وسريعة جداً.</div>
-    <div class="comment-box"><strong>سارة:</strong> تم الحذف بنجاح، شكراً لكم.</div>
-    <div class="comment-box"><strong>أحمد:</strong> مصداقية عالية، أنصح بالتعامل معهم.</div>
 
-    <footer>
-        <p>الدعم الفني: 0531156673</p>
-    </footer>
+    <h3>آراء العملاء</h3>
+    <div id="comments-list"></div>
+
+    <div style="margin-top:30px; border-top:2px solid #eee; padding-top:20px;">
+        <h4>أضف تقييمك:</h4>
+        <div class="stars-input" id="stars">
+            <span onclick="setStars(1)">★</span><span onclick="setStars(2)">★</span>
+            <span onclick="setStars(3)">★</span><span onclick="setStars(4)">★</span>
+            <span onclick="setStars(5)">★</span>
+        </div>
+        <input type="text" id="user-name" placeholder="اسمك">
+        <textarea id="user-comment" placeholder="اكتب رأيك هنا..."></textarea>
+        <button class="btn" style="background:#34495e;" onclick="addComment()">نشر التعليق</button>
+    </div>
 </div>
+
+<script>
+    // إضافة 50 تعليقاً برمجياً
+    for(let i=1; i<=50; i++) {
+        let div = document.createElement('div');
+        div.className = 'comment-box';
+        div.innerHTML = '<span style="color:#f1c40f;">★★★★★</span> <strong>عميل ' + i + ':</strong> خدمة سريعة واحترافية جداً.';
+        document.getElementById('comments-list').appendChild(div);
+    }
+
+    let currentRating = 0;
+    function setStars(n) {
+        currentRating = n;
+        let stars = document.querySelectorAll('.stars-input span');
+        stars.forEach((s, i) => s.className = i < n ? 'star-active' : '');
+    }
+
+    function addComment() {
+        let name = document.getElementById('user-name').value;
+        let comment = document.getElementById('user-comment').value;
+        if(name && comment) {
+            let div = document.createElement('div');
+            div.className = 'comment-box';
+            let starsStr = '★'.repeat(currentRating || 5);
+            div.innerHTML = '<span style="color:#f1c40f;">' + starsStr + '</span> <strong>' + name + ':</strong> ' + comment;
+            document.getElementById('comments-list').prepend(div);
+            alert("شكراً لك! تم نشر تقييمك.");
+            document.getElementById('user-name').value = '';
+            document.getElementById('user-comment').value = '';
+        } else {
+            alert("يرجى إدخال الاسم والتعليق.");
+        }
+    }
+</script>
 
 </body>
 </html>
