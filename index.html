@@ -5,45 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خدمة حذف الاسماء</title>
     <style>
-        body { font-family: sans-serif; background: #f9f9f9; padding: 10px; text-align: center; }
-        .container { max-width: 400px; margin: auto; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .logo { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 5px; object-fit: cover; }
-        .btn { display: block; background: #27ae60; color: white; padding: 12px; border-radius: 5px; margin: 8px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; font-size: 14px; }
+        /* ثيم احترافي غامق */
+        body { font-family: sans-serif; background: #1a1a2e; padding: 15px; text-align: center; color: #fff; }
+        .container { max-width: 400px; margin: auto; background: #16213e; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #0f3460; }
         
-        #payment-section { display: none; margin-top: 10px; padding: 10px; border: 1px solid #27ae60; border-radius: 5px; text-align: right; background: #f0fdf4; font-size: 13px; }
-        input, textarea { width: 100%; padding: 8px; margin: 4px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 13px; }
+        .logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px; border: 3px solid #e94560; }
+        .btn { display: block; background: #e94560; color: white; padding: 12px; border-radius: 8px; margin: 10px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; }
         
-        .stars-input { font-size: 24px; cursor: pointer; color: #ccc; }
+        #payment-section { display: none; margin-top: 15px; padding: 15px; border: 1px solid #e94560; border-radius: 10px; text-align: right; background: #0f3460; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: white; box-sizing: border-box; }
+        
+        .stars-input { font-size: 28px; cursor: pointer; color: #533483; }
         .star-active { color: #f1c40f; }
-        .comment-box { border-bottom: 1px solid #eee; padding: 8px 0; text-align: right; font-size: 13px; }
+        .comment-box { border-bottom: 1px solid #0f3460; padding: 10px 0; text-align: right; color: #ccc; font-size: 14px; }
         .hidden-comment { display: none; }
+        h1, h2, h3 { color: #fff; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <img src="1000219615_2.jpg" class="logo">
-    <h2 style="margin: 5px 0;">خدمة حذف الاسماء</h2>
+    <h2>خدمة حذف الاسماء</h2>
     <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
 
     <div id="payment-section">
+        <h3 style="text-align: center;">بيانات التحويل البنكي</h3>
         <p>البنك: <strong>بنك الجزيرة</strong></p>
         <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
+        <hr>
         <input type="text" id="name" placeholder="الاسم الكريم">
         <input type="text" id="phone" placeholder="رقم الجوال المطلوب حذفه">
-        <button class="btn" style="background:#2980b9;" onclick="alert('تم استلام طلبك، سنقوم بالتنفيذ فور التحقق من الحوالة.')">تأكيد إتمام الحوالة</button>
+        <button class="btn" style="background:#27ae60;" onclick="alert('تم الطلب!')">تأكيد إتمام الحوالة</button>
     </div>
 
-    <h3 style="font-size: 16px;">آراء العملاء</h3>
+    <h3>آراء العملاء</h3>
     <div id="comments-list">
-        <div class="comment-box">⭐⭐⭐⭐⭐ <strong>سلطان:</strong> شغل نظيف وسرعة في الرد.</div>
-        <div class="comment-box">⭐⭐⭐⭐ <strong>مريم:</strong> تم الحذف في دقائق، شكراً لكم.</div>
+        <div class="comment-box">⭐⭐⭐⭐⭐ <strong>سلطان:</strong> خدمة سريعة جداً.</div>
+        <div class="comment-box">⭐⭐⭐⭐⭐ <strong>مريم:</strong> تم الحذف بنجاح.</div>
     </div>
-    
-    <button id="more-btn" class="btn" style="background:#7f8c8d; font-size: 12px;" onclick="showMore()">قراءة المزيد من التعليقات</button>
+    <button id="more-btn" class="btn" style="background:#533483;" onclick="showMore()">قراءة المزيد من التعليقات</button>
 
-    <div style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;">
-        <h4 style="margin: 5px 0;">أضف تقييمك:</h4>
+    <div style="margin-top:20px; border-top:1px solid #0f3460; padding-top:15px;">
+        <h4>أضف تقييمك:</h4>
         <div class="stars-input" id="stars">
             <span onclick="setStars(1)">★</span><span onclick="setStars(2)">★</span>
             <span onclick="setStars(3)">★</span><span onclick="setStars(4)">★</span>
@@ -56,11 +60,12 @@
 </div>
 
 <script>
-    const texts = ["خدمة جبارة", "سرعة خيالية", "مصداقية عالية", "تم الحذف بنجاح", "الله يعطيكم العافية", "تجربة ممتازة جداً", "شخص ثقة", "أفضل خدمة تعاملت معها"];
+    // إضافة 48 تعليقاً برمجياً متنوعاً
+    const msgs = ["ممتاز جداً", "خدمة سريعة", "ثقة ومصداقية", "تم الحذف بنجاح", "شغل احترافي"];
     for(let i=1; i<=48; i++) {
         let div = document.createElement('div');
         div.className = 'comment-box hidden-comment';
-        div.innerHTML = '⭐⭐⭐⭐⭐ <strong>عميل ' + i + ':</strong> ' + texts[i % texts.length];
+        div.innerHTML = '⭐⭐⭐⭐⭐ <strong>عميل ' + i + ':</strong> ' + msgs[i % msgs.length];
         document.getElementById('comments-list').appendChild(div);
     }
 
@@ -83,7 +88,7 @@
             div.className = 'comment-box';
             div.innerHTML = '⭐'.repeat(currentRating) + ' <strong>' + name + ':</strong> ' + comment;
             document.getElementById('comments-list').prepend(div);
-            alert("شكراً لك! تم نشر تقييمك.");
+            alert("تم نشر تقييمك!");
         }
     }
 </script>
