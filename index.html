@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حذف اسماء نبر بوك</title>
 <style>
-body { font-family: tant-serif; background: #1a1a2e; padding: 15px; text-align: center; color: #fff; }
+body { font-family: sans-serif; background: #1a1a2e; padding: 15px; text-align: center; color: #fff; }
 .container { max-width: 400px; margin: auto; background: #16213e; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 .logo { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: block; }
 .btn { display: block; background: #e94560; color: white; padding: 12px; border-radius: 8px; margin: 10px 0; border: none; width: 100%; cursor: pointer; }
@@ -15,9 +15,7 @@ body { font-family: tant-serif; background: #1a1a2e; padding: 15px; text-align: 
 #payment-section { display: none; margin-top: 15px; padding: 15px; border: 1px solid #e94560; border-radius: 10px; }
 input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: #fff; }
 .stars-input { font-size: 28px; cursor: pointer; color: #533483; }
-.star-active { color: #f1c40f; }
 .comment-box { border-bottom: 1px solid #0f3460; padding: 10px 0; text-align: right; color: #ccc; font-size: 14px; }
-.hidden-comment { display: none; }
 h1, h2, h3 { color: #fff; }
 </style>
 </head>
@@ -62,9 +60,28 @@ h1, h2, h3 { color: #fff; }
 </div>
 
 <script>
-    function showMore() { alert("جاري تحميل المزيد..."); }
-    function setStars(n) { document.getElementById('stars').innerHTML = '★'.repeat(n) + '☆'.repeat(5-n); }
-    function addComment() { alert("شكراً لتقييمك!"); }
+    function showMore() { alert("لا توجد تعليقات إضافية حالياً"); }
+    function setStars(n) {
+        let stars = document.getElementById('stars').getElementsByTagName('span');
+        for (let i = 0; i < stars.length; i++) {
+            stars[i].style.color = (i < n) ? '#f1c40f' : '#533483';
+        }
+    }
+    function addComment() {
+        let name = document.getElementById('user-name').value;
+        let comment = document.getElementById('user-comment').value;
+        if(name && comment) {
+            let div = document.createElement('div');
+            div.className = 'comment-box';
+            div.innerHTML = '<strong>' + name + ':</strong> ' + comment;
+            document.getElementById('comments-list').appendChild(div);
+            document.getElementById('user-name').value = '';
+            document.getElementById('user-comment').value = '';
+            alert("تم نشر تعليقك بنجاح!");
+        } else {
+            alert("يرجى كتابة الاسم والتعليق أولاً");
+        }
+    }
 </script>
 
 <!-- كود العداد -->
