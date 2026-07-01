@@ -7,14 +7,10 @@
     <style>
         body { font-family: sans-serif; background: #1a1a2e; padding: 15px; text-align: center; color: #fff; }
         .container { max-width: 400px; margin: auto; background: #16213e; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #0f3460; }
-        
-        /* الصورة الآن ستظهر عبر رابط مباشر ومضمون */
         .logo { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: block; }
-        
         .btn { display: block; background: #e94560; color: white; padding: 12px; border-radius: 8px; margin: 10px 0; border: none; width: 100%; cursor: pointer; font-weight: bold; }
         #payment-section { display: none; margin-top: 15px; padding: 15px; border: 1px solid #e94560; border-radius: 10px; text-align: right; background: #0f3460; }
         input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: white; box-sizing: border-box; }
-        
         .stars-input { font-size: 28px; cursor: pointer; color: #533483; }
         .star-active { color: #f1c40f; }
         .comment-box { border-bottom: 1px solid #0f3460; padding: 10px 0; text-align: right; color: #ccc; font-size: 14px; }
@@ -31,13 +27,13 @@
     <button class="btn" onclick="document.getElementById('payment-section').style.display='block'">ادفع الآن</button>
 
     <div id="payment-section">
-        <h3 style="text-align: center;">بيانات التحويل البنكي</h3>
+        <h3 style="text-align: center;">يرجى التحويل على الحساب التالي:</h3>
         <p>البنك: <strong>بنك الجزيرة</strong></p>
-        <p>الآيبان: SA05 6010 0001 0813 1434 0002</p>
+        <p>الآيبان: <strong>SA05 6010 0001 0813 1434 0002</strong></p>
         <hr>
         <input type="text" id="name" placeholder="الاسم الكريم">
         <input type="text" id="phone" placeholder="رقم الجوال المطلوب حذفه">
-        <button class="btn" style="background:#27ae60;" onclick="alert('تم الطلب!')">تأكيد إتمام الحوالة</button>
+        <button class="btn" style="background:#27ae60;" onclick="alert('جاري التأكد من حوالتك، وسنقوم بالعمل فور التحقق من إتمامها.')">تأكيد إتمام الحوالة</button>
     </div>
 
     <h3>آراء العملاء</h3>
@@ -57,6 +53,12 @@
         <input type="text" id="user-name" placeholder="اسمك">
         <textarea id="user-comment" placeholder="اكتب رأيك هنا..."></textarea>
         <button class="btn" style="background:#34495e;" onclick="addComment()">نشر التعليق</button>
+    </div>
+
+    <div style="margin-top: 30px; padding: 15px; background: #0f3460; border-radius: 10px;">
+        <h4>الدعم الفني</h4>
+        <p>لأي استفسار تواصل معنا عبر الواتساب:</p>
+        <a href="https://wa.me/966XXXXXXXXX" style="color: #27ae60; font-weight: bold; font-size: 18px;">966XXXXXXXXX+</a>
     </div>
 </div>
 
